@@ -1,0 +1,71 @@
+<div>
+  <div>
+    <h1>
+      Gallery #<%= @the_gallery.id %> details
+    </h1>
+
+    <div>
+      <div>
+        <a href="/galleries">
+          Go back
+        </a>
+      </div>
+
+      <div>
+        <a href="/delete_gallery/<%= @the_gallery.id %>">
+          Delete gallery
+        </a>
+      </div>
+    </div>
+
+    <dl>
+      <dt>
+        Piece
+      </dt>
+      <dd>
+        <%= @the_gallery.piece_id %>
+      </dd>
+
+      <dt>
+        Created at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_gallery.created_at) %> ago
+      </dd>
+
+      <dt>
+        Updated at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_gallery.updated_at) %> ago
+      </dd>
+    </dl>
+  </div>
+</div>
+
+<hr>
+
+
+<div>
+  <div>
+    <h2>
+      Edit gallery
+    </h2>
+
+    <form action="/modify_gallery/<%= @the_gallery.id %>"  method="post" >
+      <div>
+        <label for="piece_id_box">
+          Piece
+        </label>
+
+        <input type="text" id="piece_id_box" name="query_piece_id" value="<%= @the_gallery.piece_id %>">
+      </div>
+
+      <button>
+        Update gallery
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>

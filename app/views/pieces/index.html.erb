@@ -1,0 +1,118 @@
+<div>
+  <div>
+    <h1>
+      List of all pieces
+    </h1>
+  </div>
+</div>
+
+<hr>
+
+<div>
+  <div>
+    <h2>
+      Add a new piece
+    </h2>
+
+    <form action="/insert_piece" method="post">
+      <div>
+        <label for="user_id_box">
+          User
+        </label>
+
+        <input type="text" id="user_id_box" name="query_user_id">
+      </div>
+
+      <div>
+        <label for="description_box">
+          Description
+        </label>
+
+        <textarea id="description_box" name="query_description" rows="3"></textarea>
+      </div>
+
+      <div>
+        <label for="image_box">
+          Image
+        </label>
+
+        <input type="text" id="image_box" name="query_image">
+      </div>
+
+      <button>
+        Create piece
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>
+<div>
+  <div>
+    <table border="1">
+      <tr>
+        <th>
+          ID
+        </th>
+
+        <th>
+          User
+        </th>
+
+        <th>
+          Description
+        </th>
+
+        <th>
+          Image
+        </th>
+
+        <th>
+          Created at
+        </th>
+
+        <th>
+          Updated at
+        </th>
+
+        <th>
+        </th>
+      </tr>
+
+      <% @list_of_pieces.each do |a_piece| %>
+      <tr>
+        <td>
+          <%= a_piece.id %>
+        </td>
+
+        <td>
+          <%= a_piece.user_id %>
+        </td>
+
+        <td>
+          <%= a_piece.description %>
+        </td>
+
+        <td>
+          <%= a_piece.image %>
+        </td>
+
+        <td>
+          <%= time_ago_in_words(a_piece.created_at) %> ago
+        </td>
+        <td>
+          <%= time_ago_in_words(a_piece.updated_at) %> ago
+        </td>
+
+        <td>
+          <a href="/pieces/<%= a_piece.id %>">
+            Show details
+          </a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
+
+<hr>

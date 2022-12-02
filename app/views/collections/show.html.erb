@@ -1,0 +1,101 @@
+<div>
+  <div>
+    <h1>
+      Collection #<%= @the_collection.id %> details
+    </h1>
+
+    <div>
+      <div>
+        <a href="/collections">
+          Go back
+        </a>
+      </div>
+
+      <div>
+        <a href="/delete_collection/<%= @the_collection.id %>">
+          Delete collection
+        </a>
+      </div>
+    </div>
+
+    <dl>
+      <dt>
+        Item
+      </dt>
+      <dd>
+        <%= @the_collection.item_id %>
+      </dd>
+
+      <dt>
+        Description
+      </dt>
+      <dd>
+        <%= @the_collection.description %>
+      </dd>
+
+      <dt>
+        Image
+      </dt>
+      <dd>
+        <%= @the_collection.image %>
+      </dd>
+
+      <dt>
+        Created at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_collection.created_at) %> ago
+      </dd>
+
+      <dt>
+        Updated at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_collection.updated_at) %> ago
+      </dd>
+    </dl>
+  </div>
+</div>
+
+<hr>
+
+
+<div>
+  <div>
+    <h2>
+      Edit collection
+    </h2>
+
+    <form action="/modify_collection/<%= @the_collection.id %>"  method="post" >
+      <div>
+        <label for="item_id_box">
+          Item
+        </label>
+
+        <input type="text" id="item_id_box" name="query_item_id" value="<%= @the_collection.item_id %>">
+      </div>
+
+      <div>
+        <label for="description_box">
+          Description
+        </label>
+
+        <textarea id="description_box" name="query_description"><%= @the_collection.description %></textarea>
+      </div>
+
+      <div>
+        <label for="image_box">
+          Image
+        </label>
+
+        <input type="text" id="image_box" name="query_image" value="<%= @the_collection.image %>">
+      </div>
+
+      <button>
+        Update collection
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>

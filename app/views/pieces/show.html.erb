@@ -1,0 +1,101 @@
+<div>
+  <div>
+    <h1>
+      Piece #<%= @the_piece.id %> details
+    </h1>
+
+    <div>
+      <div>
+        <a href="/pieces">
+          Go back
+        </a>
+      </div>
+
+      <div>
+        <a href="/delete_piece/<%= @the_piece.id %>">
+          Delete piece
+        </a>
+      </div>
+    </div>
+
+    <dl>
+      <dt>
+        User
+      </dt>
+      <dd>
+        <%= @the_piece.user_id %>
+      </dd>
+
+      <dt>
+        Description
+      </dt>
+      <dd>
+        <%= @the_piece.description %>
+      </dd>
+
+      <dt>
+        Image
+      </dt>
+      <dd>
+        <%= @the_piece.image %>
+      </dd>
+
+      <dt>
+        Created at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_piece.created_at) %> ago
+      </dd>
+
+      <dt>
+        Updated at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_piece.updated_at) %> ago
+      </dd>
+    </dl>
+  </div>
+</div>
+
+<hr>
+
+
+<div>
+  <div>
+    <h2>
+      Edit piece
+    </h2>
+
+    <form action="/modify_piece/<%= @the_piece.id %>"  method="post" >
+      <div>
+        <label for="user_id_box">
+          User
+        </label>
+
+        <input type="text" id="user_id_box" name="query_user_id" value="<%= @the_piece.user_id %>">
+      </div>
+
+      <div>
+        <label for="description_box">
+          Description
+        </label>
+
+        <textarea id="description_box" name="query_description"><%= @the_piece.description %></textarea>
+      </div>
+
+      <div>
+        <label for="image_box">
+          Image
+        </label>
+
+        <input type="text" id="image_box" name="query_image" value="<%= @the_piece.image %>">
+      </div>
+
+      <button>
+        Update piece
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>
