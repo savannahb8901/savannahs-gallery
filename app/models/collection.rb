@@ -10,4 +10,6 @@
 #  item_id     :integer
 #
 class Collection < ApplicationRecord
+  has_many(:items, { :class_name => "Item", :foreign_key => "collection_id" })
+  has_many(:likes, { :class_name => "Like", :foreign_key => "collection_id" })
 end

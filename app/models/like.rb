@@ -11,4 +11,7 @@
 #  user_id       :integer
 #
 class Like < ApplicationRecord
+  belongs_to(:user, { :required => true, :class_name => "User", :foreign_key => "user_id" })
+  belongs_to(:collection, { :class_name => "Collection", :foreign_key => "collection_id" })
+  belongs_to(:item, { :required => true, :class_name => "Item", :foreign_key => "item_id", :counter_cache => true })
 end

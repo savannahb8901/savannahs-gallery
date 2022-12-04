@@ -8,4 +8,5 @@
 #  piece_id   :integer
 #
 class Gallery < ApplicationRecord
+  has_many(:pieces, { :class_name => "Piece", :foreign_key => "user_id" })
 end

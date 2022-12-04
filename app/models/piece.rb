@@ -10,4 +10,7 @@
 #  user_id     :integer
 #
 class Piece < ApplicationRecord
+
+  belongs_to(:artist, { :class_name => "Gallery", :foreign_key => "user_id" })
+
 end
