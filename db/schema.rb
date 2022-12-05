@@ -10,12 +10,26 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_12_02_185843) do
+ActiveRecord::Schema.define(version: 2022_12_05_190001) do
+
+  create_table "categories", force: :cascade do |t|
+    t.string "title"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "collection_categories", force: :cascade do |t|
+    t.integer "collection_id"
+    t.integer "category_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "collections", force: :cascade do |t|
-    t.integer "item_id"
     t.text "description"
-    t.string "image"
+    t.string "name"
+    t.string "month"
+    t.integer "item_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -40,6 +54,7 @@ ActiveRecord::Schema.define(version: 2022_12_02_185843) do
     t.integer "collection_id"
     t.integer "comments_count"
     t.integer "likes_count"
+    t.integer "category_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

@@ -1,0 +1,86 @@
+<div>
+  <div>
+    <h1>
+      Collection category #<%= @the_collection_category.id %> details
+    </h1>
+
+    <div>
+      <div>
+        <a href="/collection_categories">
+          Go back
+        </a>
+      </div>
+
+      <div>
+        <a href="/delete_collection_category/<%= @the_collection_category.id %>">
+          Delete collection category
+        </a>
+      </div>
+    </div>
+
+    <dl>
+      <dt>
+        Collection
+      </dt>
+      <dd>
+        <%= @the_collection_category.collection_id %>
+      </dd>
+
+      <dt>
+        Category
+      </dt>
+      <dd>
+        <%= @the_collection_category.category_id %>
+      </dd>
+
+      <dt>
+        Created at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_collection_category.created_at) %> ago
+      </dd>
+
+      <dt>
+        Updated at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_collection_category.updated_at) %> ago
+      </dd>
+    </dl>
+  </div>
+</div>
+
+<hr>
+
+
+<div>
+  <div>
+    <h2>
+      Edit collection category
+    </h2>
+
+    <form action="/modify_collection_category/<%= @the_collection_category.id %>"  method="post" >
+      <div>
+        <label for="collection_id_box">
+          Collection
+        </label>
+
+        <input type="text" id="collection_id_box" name="query_collection_id" value="<%= @the_collection_category.collection_id %>">
+      </div>
+
+      <div>
+        <label for="category_id_box">
+          Category
+        </label>
+
+        <input type="text" id="category_id_box" name="query_category_id" value="<%= @the_collection_category.category_id %>">
+      </div>
+
+      <button>
+        Update collection category
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>

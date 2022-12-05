@@ -1,0 +1,102 @@
+<div>
+  <div>
+    <h1>
+      List of all collection categories
+    </h1>
+  </div>
+</div>
+
+<hr>
+
+<div>
+  <div>
+    <h2>
+      Add a new collection category
+    </h2>
+
+    <form action="/insert_collection_category" method="post">
+      <div>
+        <label for="collection_id_box">
+          Collection
+        </label>
+
+        <input type="text" id="collection_id_box" name="query_collection_id">
+      </div>
+
+      <div>
+        <label for="category_id_box">
+          Category
+        </label>
+
+        <input type="text" id="category_id_box" name="query_category_id">
+      </div>
+
+      <button>
+        Create collection category
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>
+<div>
+  <div>
+    <table border="1">
+      <tr>
+        <th>
+          ID
+        </th>
+
+        <th>
+          Collection
+        </th>
+
+        <th>
+          Category
+        </th>
+
+        <th>
+          Created at
+        </th>
+
+        <th>
+          Updated at
+        </th>
+
+        <th>
+        </th>
+      </tr>
+
+      <% @list_of_collection_categories.each do |a_collection_category| %>
+      <tr>
+        <td>
+          <%= a_collection_category.id %>
+        </td>
+
+        <td>
+          <%= a_collection_category.collection_id %>
+        </td>
+
+        <td>
+          <%= a_collection_category.category_id %>
+        </td>
+
+        <td>
+          <%= time_ago_in_words(a_collection_category.created_at) %> ago
+        </td>
+        <td>
+          <%= time_ago_in_words(a_collection_category.updated_at) %> ago
+        </td>
+
+        <td>
+          <a href="/collection_categories/<%= a_collection_category.id %>">
+            Show details
+          </a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
+
+<hr>

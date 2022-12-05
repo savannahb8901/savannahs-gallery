@@ -9,6 +9,7 @@
 #  likes_count    :integer
 #  created_at     :datetime         not null
 #  updated_at     :datetime         not null
+#  category_id    :integer
 #  collection_id  :integer
 #
 class Item < ApplicationRecord

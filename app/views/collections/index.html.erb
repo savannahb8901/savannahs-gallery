@@ -1,7 +1,7 @@
 <div>
   <div>
     <h1>
-      List of all collections
+      Collections
     </h1>
   </div>
 </div>
@@ -24,6 +24,14 @@
       </div>
 
       <div>
+        <label for="image_box">
+          Month
+        </label>
+
+        <input type="text" id="image_box" name="query_image">
+      </div>
+
+      <div>
         <label for="description_box">
           Description
         </label>
@@ -38,6 +46,7 @@
 
         <input type="text" id="image_box" name="query_image">
       </div>
+
 
       <button>
         Create collection
@@ -60,9 +69,13 @@
         </th>
 
         <th>
-          Description
+          Month
         </th>
 
+        <th>
+          Description
+        </th>
+        
         <th>
           Image
         </th>
@@ -98,10 +111,10 @@
         </td>
 
         <td>
-          <%= time_ago_in_words(a_collection.created_at) %> ago
+          <%#= time_ago_in_words(a_collection.created_at) %> 
         </td>
         <td>
-          <%= time_ago_in_words(a_collection.updated_at) %> ago
+          <%#= time_ago_in_words(a_collection.updated_at) %> 
         </td>
 
         <td>

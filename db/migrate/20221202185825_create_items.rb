@@ -6,6 +6,7 @@ class CreateItems < ActiveRecord::Migration[6.0]
       t.integer :collection_id
       t.integer :comments_count
       t.integer :likes_count
+      t.integer :category_id
 
       t.timestamps
     end
