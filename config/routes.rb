@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-
+  get("/", { :controller => "galleries", :action => "index"})
 
   # Routes for the Comment resource:
 
@@ -120,7 +120,7 @@ Rails.application.routes.draw do
   post("/user_verify_credentials", { :controller => "user_authentication", :action => "create_cookie" })
   
   # SIGN OUT        
-  get("/user_sign_out", { :controller => "user_authentication", :action => "destroy_cookies" })
+  get("/user_sign_out", { :controller => "user_authentication", :action => "destroy_cookies"})
              
   #------------------------------
 
