@@ -1,7 +1,7 @@
 <div>
   <div>
     <h1>
-      Piece #<%= @the_piece.id %> details
+      "<%= @the_piece.image %>" details
     </h1>
 
     <div>
@@ -10,22 +10,11 @@
           Go back
         </a>
       </div>
-
-      <div>
-        <a href="/delete_piece/<%= @the_piece.id %>">
-          Delete piece
-        </a>
-      </div>
     </div>
 
-    <dl>
-      <dt>
-        User
-      </dt>
-      <dd>
-        <%= @the_piece.user_id %>
-      </dd>
 
+    <dl>
+  
       <dt>
         Description
       </dt>
@@ -67,14 +56,7 @@
     </h2>
 
     <form action="/modify_piece/<%= @the_piece.id %>"  method="post" >
-      <div>
-        <label for="user_id_box">
-          User
-        </label>
-
-        <input type="text" id="user_id_box" name="query_user_id" value="<%= @the_piece.user_id %>">
-      </div>
-
+      
       <div>
         <label for="description_box">
           Description

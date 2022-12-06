@@ -4,6 +4,11 @@ class CollectionsController < ApplicationController
 
     @list_of_collections = matching_collections.order({ :created_at => :desc })
 
+    matching_items = Item.all
+
+    @list_of_items = matching_items.order({ :created_at => :desc })
+
+
     render({ :template => "collections/index.html.erb" })
   end
 

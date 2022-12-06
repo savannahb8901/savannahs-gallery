@@ -4,6 +4,7 @@ class CollectionCategoriesController < ApplicationController
 
     @list_of_collection_categories = matching_collection_categories.order({ :created_at => :desc })
 
+
     render({ :template => "collection_categories/index.html.erb" })
   end
 
