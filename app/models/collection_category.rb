@@ -9,4 +9,6 @@
 #  collection_id :integer
 #
 class CollectionCategory < ApplicationRecord
+  belongs_to(:collection, { :required => true, :class_name => "Collection", :foreign_key => "collection_id" })
+  belongs_to(:category, { :required => true, :class_name => "Category", :foreign_key => "category_id" })
 end

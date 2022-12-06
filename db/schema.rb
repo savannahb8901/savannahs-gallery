@@ -29,7 +29,6 @@ ActiveRecord::Schema.define(version: 2022_12_05_190001) do
     t.text "description"
     t.string "name"
     t.string "month"
-    t.integer "item_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -69,7 +68,6 @@ ActiveRecord::Schema.define(version: 2022_12_05_190001) do
   end
 
   create_table "pieces", force: :cascade do |t|
-    t.integer "user_id"
     t.text "description"
     t.string "image"
     t.datetime "created_at", precision: 6, null: false

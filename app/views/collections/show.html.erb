@@ -18,12 +18,13 @@
       </div>
     </div>
 
+
     <dl>
       <dt>
         Item
       </dt>
       <dd>
-        <%= @the_collection.item_id %>
+        <%= @the_collection.name %>
       </dd>
 
       <dt>
@@ -37,7 +38,7 @@
         Image
       </dt>
       <dd>
-        <%= @the_collection.image %>
+        <%= @the_collection.month %>
       </dd>
 
       <dt>
@@ -72,7 +73,7 @@
           Item
         </label>
 
-        <input type="text" id="item_id_box" name="query_item_id" value="<%= @the_collection.item_id %>">
+        <input type="text" id="item_id_box" name="query_item_id" value="<%= @the_collection.name %>">
       </div>
 
       <div>
@@ -88,7 +89,7 @@
           Image
         </label>
 
-        <input type="text" id="image_box" name="query_image" value="<%= @the_collection.image %>">
+        <input type="text" id="image_box" name="query_image" value="<%= @the_collection.month %>">
       </div>
 
       <button>

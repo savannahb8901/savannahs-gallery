@@ -8,7 +8,6 @@
 #  name        :string
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
-#  item_id     :integer
 #
 class Collection < ApplicationRecord
   has_many(:items, { :class_name => "Item", :foreign_key => "collection_id" })

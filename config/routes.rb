@@ -1,5 +1,12 @@
 Rails.application.routes.draw do
 
+
+  get("/", { :controller => "application", :action => "home"})
+
+  get("/about", { :controller => "application", :action => "index"})
+
+
+
   # Routes for the Collection category resource:
 
   # CREATE
@@ -37,10 +44,6 @@ Rails.application.routes.draw do
   get("/delete_category/:path_id", { :controller => "categories", :action => "destroy" })
 
   #------------------------------
-
-  get("/", { :controller => "galleries", :action => "index"})
-
-  get("/about", { :controller => "application", :action => "index"})
 
   # Routes for the Comment resource:
 

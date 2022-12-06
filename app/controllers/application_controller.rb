@@ -17,7 +17,11 @@ class ApplicationController < ActionController::Base
   end
 
   def index
-    render({ :template => "application/index.show.erb" })
+    render({ :template => "about/index.show.erb" })
+  end
+
+  def home
+    render({ :template => "about/home.show.erb"})
   end
 
 end

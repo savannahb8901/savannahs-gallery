@@ -2,6 +2,9 @@
 <html>
   <head>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+
     <title>FinalProject</title>
     <%= csrf_meta_tags %>
 
@@ -16,31 +19,67 @@
 
   </head>
 
-  <body>
 
+
+  <body>
+    <nav class="navbar navbar-expand-lg bg-light">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="/">Home</a>
+    <img src="logo.png" alt="Savannahs Logo" width="80" height="80" >
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="/collections">Collections</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/galleries">The Gallery</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/about">About</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Join
+          </a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="/user_sign_in">Sign In</a></li>
+            <li><a class="dropdown-item" href="/user_sign_up">Sign Up</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="/user_sign_out">Sign Out</a></li>
+          </ul>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link disabled">Disabled</a>
+        </li>
+      </ul>
+      <form class="d-flex" role="search">
+        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success" type="submit">Search</button>
+      </form>
+    </div>
+  </div>
+</nav>
     
     
-    <ul>
-      <li>
-        <a href="/collections"> Collections</a>
-      </li>
-      <li>
-        <a href="/galleries"> The Gallery</a>
-      </li>
+  
+  
 
       <% if session.fetch(:user_id) == nil %>
-      <li>
-        <a href="/user_sign_in"> Sign In</a>
-      </li>
-      <li>
-        <a href="/user_sign_up"> Sign Up</a>
-      </li>
+   
+        <a href="/user_sign_in"></a>
+     
+  
+        <a href="/user_sign_up"> </a>
+     
       <% else %>
-      <li>
-        <a href="/user_sign_out"> Sign Out</a>
-      </li>
+   
+        <a href="/user_sign_out"> </a>
+ 
       <% end %>
-    </ul>
+
     
     <p><%= notice %></p>
 
