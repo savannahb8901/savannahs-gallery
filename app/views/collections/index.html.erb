@@ -14,23 +14,17 @@
   </div>
 </div>
 
+<%=Item.all.where({ :collection => 2})%>
 
 <hr>
 <div>
   <div>
-    
-      
-
       <% @list_of_collections.each do |a_collection| %> <% @list_of_items.each do |an_item| %>
-      
-      
-
-    <div class="card" style="width: 18rem;">
+  <div class="card" style="width: 18rem;">
   <div class="card-body">
     <h5 class="card-title"><%= a_collection.name %></h5>
     <p class="card-text">See my <%= a_collection.name %> favorites</p>
     <a href="/items/<%= an_item.id %>" class="btn btn-primary">See Favorites</a>
-    
   </div>
 </div>
 <% end %>
@@ -38,5 +32,7 @@
 
   </div>
 </div>
+
+
 
 <hr>

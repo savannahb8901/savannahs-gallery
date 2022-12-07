@@ -4,6 +4,10 @@ class GalleriesController < ApplicationController
 
     @list_of_galleries = matching_galleries.order({ :created_at => :desc })
 
+    matching_comments = Comment.all
+
+    @list_of_comments = matching_comments.order({ :created_at => :desc })
+
     render({ :template => "galleries/index.html.erb" })
   end
 
