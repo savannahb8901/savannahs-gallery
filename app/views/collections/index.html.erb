@@ -19,7 +19,35 @@
 <hr>
 <div>
   <div>
-      <% @list_of_collections.each do |a_collection| %> <% @list_of_items.each do |an_item| %>
+      <% @list_of_collections.each do |a_collection| %> 
+      <!-- find out of a_collection which month I'm on and then -->
+      <!-- limit list of items to only items that where created (created by field) matches month within list of items-->
+      <% collection_month = a_collection.month %>
+      <% if collection_month == "June"%>
+      <% integer_month = 6 %>
+      <% elsif  collection_month == "July"%>
+      <% integer_month = 7 %>
+      <% elsif  collection_month == "August"%>
+      <% integer_month = 8 %>
+      <% elsif  collection_month == "September"%>
+      <% integer_month = 9 %>
+      <% else integer_month = 12%>
+      <% end %>
+
+      <%limited_items = []%>
+
+      <% @list_of_items.each do |item| %>
+        <% created_month = Date.parse(item.created_at).month %>
+        <% if created_month == integer_month %>
+        <% limited_items.push(item) %>
+        
+        <% end %>
+
+      
+
+
+
+      <% limited_items.each do |an_item| %>
   <div class="card" style="width: 18rem;">
   <div class="card-body">
     <h5 class="card-title"><%= a_collection.name %></h5>
@@ -33,6 +61,6 @@
   </div>
 </div>
 
-
+<% end %>
 
 <hr>
