@@ -14,46 +14,47 @@
   </div>
 </div>
 
+
 <%#=Item.all.where({ :collection => 2})%>
 
 <hr>
   <div>
     <div>
-    <%= @list_of_collections.length %>
+    <% @list_of_collections.length %>
     <br />
         <% @list_of_collections.each do |a_collection| %> 
           <!-- find out of a_collection which month I'm on and then -->
           <!-- limit list of items to only items that where created (created by field) matches month within list of items-->
           <% collection_month = a_collection.month %>
-          <%= a_collection.month %>
+          <% a_collection.month %>
           <br />
           <% if collection_month == "January"%>
-            <% integer_month = 1 %>
+            <% integer_month = 12 %>
           <% elsif  collection_month == "February"%>
-            <% integer_month = 2 %>
+            <% integer_month = 12 %>
           <% elsif  collection_month == "March"%>
-            <% integer_month = 3 %>
+            <% integer_month = 12 %>
           <% elsif  collection_month == "April"%>
-            <% integer_month = 4 %>
+            <% integer_month = 12 %>
           <% elsif  collection_month == "May"%>
-            <% integer_month = 5 %>
+            <% integer_month = 12 %>
           <% elsif  collection_month == "June"%>
-            <% integer_month = 6 %>            
+            <% integer_month = 12 %>            
           <% elsif  collection_month == "July"%>
-            <% integer_month = 7 %>
+            <% integer_month = 12 %>
           <% elsif  collection_month == "August"%>
-            <% integer_month = 8 %>
+            <% integer_month = 12 %>
           <% elsif  collection_month == "September"%>
-            <% integer_month = 9 %>
+            <% integer_month = 12 %>
           <% elsif  collection_month == "October"%>
-            <% integer_month = 10 %>
+            <% integer_month = 12 %>
           <% elsif  collection_month == "November"%>
-            <% integer_month = 11 %>
+            <% integer_month = 12 %>
           <% else %>
-          <% integer_month = 12 %>
+          <% integer_month = 6 %>
           <% end %>
         <br />
-        <% integer_month%>
+        <%integer_month%>
         <br />
           <%limited_items = []%>
 
@@ -62,23 +63,31 @@
           <%# <br />  %>
 
             <% created_month = item.created_at.month %>
-            <%= created_month %>
+            <% created_month %>
             <% if created_month == integer_month %>
-              <% limited_items.push(item) %>
+              <%limited_items.push(item) %>
             <% end %>
           <% end %>
 
+
+          
           <% limited_items.each do |an_item| %>
-          <%= an_item.caption%>
+          <% an_item.caption%>
             <div class="card" style="width: 18rem;">
               <div class="card-body">
                 <h5 class="card-title"><%= a_collection.name %></h5>
                 <p class="card-text">See my <%= a_collection.name %> favorites</p>
                 <a href="/items/<%= an_item.id %>" class="btn btn-primary">See Favorites</a>
+                <button type="button" class="btn btn-danger" data-bs-toggle="button">Like</button>
+                <div class="footer text-muted">
+                 <%= a_collection.likes.count %> Likes
+                </div>
+
               </div>
             </div>
           <% end %>
         <% end %>
+        
     </div>
   </div>
 
