@@ -29,9 +29,11 @@
       <dt>
         Image
       </dt>
+
       <dd>
-        <%= @the_item.image %>
+          <img src= <%= @the_item.image %> >
       </dd>
+
 
       <dt>
         Collection
@@ -54,19 +56,7 @@
         <%= @the_item.likes_count %>
       </dd>
 
-      <dt>
-        Created at
-      </dt>
-      <dd>
-        <%= time_ago_in_words(@the_item.created_at) %> ago
-      </dd>
-
-      <dt>
-        Updated at
-      </dt>
-      <dd>
-        <%= time_ago_in_words(@the_item.updated_at) %> ago
-      </dd>
+    
     </dl>
   </div>
 </div>
